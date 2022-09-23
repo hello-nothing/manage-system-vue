@@ -9,14 +9,11 @@
       :defaultExpanded="defaultExpanded"
     >
       <template #logo>
-        <span v-if="showLogo" :class="`${prefix}-side-nav-logo-wrapper`" @click="() => handleNav('/dashboard/base')">
+        <span v-if="showLogo" :class="`${prefix}-side-nav-logo-wrapper`" @click="() => handleNav('/')">
           <component :is="getLogo" :class="`${prefix}-side-nav-logo-${collapsed ? 't' : 'tdesign'}-logo`" />
         </span>
       </template>
       <menu-content :navData="menu" />
-      <template #operations>
-        <span class="version-container"> {{ !collapsed && 'TDesign Starter' }} {{ pgk.version }} </span>
-      </template>
     </t-menu>
     <div :class="`${prefix}-side-nav-placeholder${collapsed ? '-hidden' : ''}`"></div>
   </div>

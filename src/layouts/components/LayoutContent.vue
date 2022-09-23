@@ -60,9 +60,6 @@
       <layout-breadcrumb v-if="setting.showBreadcrumb" />
       <common-content />
     </t-content>
-    <t-footer v-if="showFooter" :class="`${prefix}-footer-layout`">
-      <layout-footer />
-    </t-footer>
   </t-layout>
 </template>
 
@@ -73,7 +70,6 @@ import { RefreshIcon, ArrowLeftIcon, ArrowRightIcon, HomeIcon, CloseCircleIcon }
 
 import CommonContent from './Content.vue';
 import LayoutBreadcrumb from './Breadcrumb.vue';
-import LayoutFooter from './Footer.vue';
 
 import { prefix } from '@/config/global';
 import { SettingType } from '@/interface';
@@ -82,7 +78,6 @@ export default Vue.extend({
   name: 'LayoutContent',
   components: {
     CommonContent,
-    LayoutFooter,
     LayoutBreadcrumb,
     RefreshIcon,
     ArrowLeftIcon,

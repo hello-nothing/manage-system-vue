@@ -14,10 +14,10 @@ export type TTabRouterType = {
 
 const homeRoute: Array<TRouterInfo> = [
   {
-    path: '/dashboard/base',
+    path: '/',
     routeIdx: 0,
     title: '仪表盘',
-    name: 'DashboardBase',
+    name: 'home',
     isHome: true,
   },
 ];

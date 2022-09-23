@@ -37,7 +37,7 @@
 
       <div class="check-container remember-pwd">
         <t-checkbox>记住账号</t-checkbox>
-        <span class="tip">忘记账号？</span>
+        <!-- <span class="tip">忘记账号？</span> -->
       </div>
     </template>
 
@@ -75,11 +75,11 @@
       <t-button block size="large" type="submit"> 登录 </t-button>
     </t-form-item>
 
-    <div class="switch-container">
+    <!-- <div class="switch-container">
       <span v-if="type !== 'password'" class="tip" @click="switchType('password')">使用账号密码登录</span>
       <span v-if="type !== 'qrcode'" class="tip" @click="switchType('qrcode')">使用微信扫码登录</span>
       <span v-if="type !== 'phone'" class="tip" @click="switchType('phone')">使用手机号登录</span>
-    </div>
+    </div> -->
   </t-form>
 </template>
 <script lang="ts">

@@ -3,18 +3,17 @@
 .light {
   &.login-wrapper {
     background-color: white;
-    background-image: url('@/assets/assets-login-bg-white.png');
   }
 }
 
 .dark {
   &.login-wrapper {
     background-color: var(--td-bg-color-page);
-    background-image: url('@/assets/assets-login-bg-black.png');
   }
 }
 
 .login-wrapper {
+  padding-top: 230px;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -24,10 +23,8 @@
 }
 
 .login-container {
-  position: absolute;
-  top: 22%;
-  left: 5%;
   min-height: 500px;
+  margin: 0 auto;
   line-height: 22px;
 }
 
@@ -188,10 +185,8 @@
 }
 
 .copyright {
+  margin: 0 auto;
   font-size: 14px;
-  position: absolute;
-  left: 5%;
-  bottom: 64px;
   color: var(--td-text-color-secondary);
 }
 

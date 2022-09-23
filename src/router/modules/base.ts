@@ -3,26 +3,21 @@ import Layout from '@/layouts/index.vue';
 
 export default [
   {
-    path: '/dashboard',
+    path: '/',
     component: Layout,
-    redirect: '/dashboard/base',
-    name: 'dashboard',
+    redirect: '/home',
+    name: 'home',
     meta: {
-      title: '仪表盘',
+      title: '系统管理',
       icon: DashboardIcon,
+      single: true,
     },
     children: [
       {
-        path: 'base',
-        name: 'DashboardBase',
-        component: () => import('@/pages/dashboard/base/index.vue'),
-        meta: { title: '概览仪表盘' },
-      },
-      {
-        path: 'detail',
-        name: 'DashboardDetail',
-        component: () => import('@/pages/dashboard/detail/index.vue'),
-        meta: { title: '统计报表' },
+        path: 'home',
+        name: 'home',
+        component: () => import('@/pages/home.vue'),
+        meta: { title: '系统管理' },
       },
     ],
   },

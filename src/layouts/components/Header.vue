@@ -2,35 +2,18 @@
   <div :class="layoutCls">
     <t-head-menu :class="menuCls" :theme="theme" expandType="popup" :value="active">
       <template #logo>
-        <span v-if="showLogo" class="header-logo-container" @click="handleNav('/dashboard/base')">
+        <span v-if="showLogo" class="header-logo-container" @click="handleNav('/')">
           <logo-full class="t-logo" />
         </span>
         <div v-else class="header-operate-left">
           <t-button theme="default" shape="square" variant="text" @click="changeCollapsed">
             <view-list-icon class="collapsed-icon" />
           </t-button>
-          <search :layout="layout" />
         </div>
       </template>
       <menu-content v-show="layout !== 'side'" class="header-menu" :navData="menu" />
       <template #operations>
         <div class="operations-container">
-          <!-- 搜索框 -->
-          <search v-if="layout !== 'side'" :layout="layout" />
-
-          <!-- 全局通知 -->
-          <notice />
-
-          <t-tooltip placement="bottom" content="代码仓库">
-            <t-button theme="default" shape="square" variant="text" @click="navToGitHub">
-              <logo-github-icon />
-            </t-button>
-          </t-tooltip>
-          <t-tooltip placement="bottom" content="帮助文档">
-            <t-button theme="default" shape="square" variant="text" @click="navToHelper">
-              <help-circle-icon />
-            </t-button>
-          </t-tooltip>
           <t-dropdown :min-column-width="125" trigger="click">
             <template #dropdown>
               <t-dropdown-menu>
@@ -52,11 +35,6 @@
               </div>
             </t-button>
           </t-dropdown>
-          <t-tooltip placement="bottom" content="系统设置">
-            <t-button theme="default" shape="square" variant="text" @click="toggleSettingPanel">
-              <setting-icon />
-            </t-button>
-          </t-tooltip>
         </div>
       </template>
     </t-head-menu>
@@ -65,35 +43,21 @@
 
 <script>
 import Vue from 'vue';
-import {
-  ViewListIcon,
-  LogoGithubIcon,
-  HelpCircleIcon,
-  UserCircleIcon,
-  PoweroffIcon,
-  SettingIcon,
-  ChevronDownIcon,
-} from 'tdesign-icons-vue';
+import { ViewListIcon, HelpCircleIcon, UserCircleIcon, ChevronDownIcon, PoweroffIcon } from 'tdesign-icons-vue';
 import { prefix } from '@/config/global';
 import LogoFull from '@/assets/assets-logo-full.svg';
 
-import Notice from './Notice.vue';
-import Search from './Search.vue';
 import MenuContent from './MenuContent.vue';
 
 export default Vue.extend({
   components: {
     MenuContent,
     LogoFull,
-    Notice,
-    Search,
     ViewListIcon,
-    LogoGithubIcon,
-    HelpCircleIcon,
     UserCircleIcon,
-    PoweroffIcon,
-    SettingIcon,
+    HelpCircleIcon,
     ChevronDownIcon,
+    PoweroffIcon,
   },
   props: {
     theme: String,
@@ -124,8 +88,6 @@ export default Vue.extend({
   data() {
     return {
       prefix,
-      visibleNotice: false,
-      isSearchFocus: false,
     };
   },
   computed: {
@@ -157,9 +119,6 @@ export default Vue.extend({
     },
   },
   methods: {
-    toggleSettingPanel() {
-      this.$store.commit('setting/toggleSettingPanel', true);
-    },
     handleLogout() {
       this.$router.push(`/login?redirect=${this.$router.history.current.fullPath}`);
     },
@@ -168,12 +127,6 @@ export default Vue.extend({
     },
     handleNav(url) {
       this.$router.push(url);
-    },
-    navToGitHub() {
-      window.open('https://github.com/Tencent/tdesign-vue-starter');
-    },
-    navToHelper() {
-      window.open('http://tdesign.tencent.com/starter/docs/get-started');
     },
   },
 });
